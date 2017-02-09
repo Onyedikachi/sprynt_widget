@@ -67,4 +67,12 @@ if (YII_ENV_DEV) {
     ];
 }
 
+// Set your sensitive parameters in a file in this dir called web_local.php
+// so its credentials are not stored in the remote repository
+$web_local = dirname(__DIR__) . '/config/web_local.php';
+if (file_exists($web_local)) {
+    require($web_local);
+}
+
+
 return $config;
