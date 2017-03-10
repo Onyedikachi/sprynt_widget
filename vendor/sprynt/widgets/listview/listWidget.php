@@ -11,7 +11,7 @@ class ListWidget extends Widget
 		parent::init();
 	}
 	public function run(){
-		return $this->render ('listDisplay');
+		return $this->render ('ListDisplay');
 	}
 }
 ?>
