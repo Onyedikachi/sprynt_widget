@@ -2,8 +2,11 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForms;
 ?>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+
 <div class="container">
-<table class="col-md-12 table table-bordered">
+<table class="col-md-12 table" id="myTable">
 	<thead>
 		<tr>
 			<th class="col-md-1"></th>
@@ -128,17 +131,14 @@ use yii\bootstrap\ActiveForms;
 				</ul>
 		<button class="col-md-2 btn btn-primary">Apply</button>
 	</div>
-	<div class="col-md-5">
-		<p>showing 1-6 of 20 records</p>
-	</div>
-	<div>
-		<ul class="col-md-2 pagination pagination-sm">
-    		<li class="active"><a href="#">1</a></li>
-    		<li><a href="#">2</a></li>
-    		<li><a href="#">3</a></li>
-    		<li><a href="#">4</a></li>
-    		<li><a href="#">5</a></li>
-		</ul>
-	</div>
 </div>
 </div>
+
+<?php 
+	$js = "
+		$('#myTable').DataTable();
+	";
+	$this->registerJS($js);
+	$this->registerJsFile('https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js', ['depends' => [\yii\web\JqueryAsset::className()]]);
+
+?>
